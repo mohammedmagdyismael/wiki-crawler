@@ -90,4 +90,4 @@ go to ```sn_backend/config/default.json``` and set your connection string
 
 ## Social
 ![GitHub followers](https://img.shields.io/github/followers/mohammedmagdyismael?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/mohammedmagdyismael/sn_backend?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/mohammedmagdyismael/ready-express-app?style=social)
