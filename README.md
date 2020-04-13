@@ -80,9 +80,19 @@ go to ```sn_backend/config/default.json``` and set your connection string
  "mongoURI": "<your_connection_string>"
 ```
 
-* Bugsnag
+
+## Bugsnag [Bug tracker]
+https://docs.bugsnag.com/platforms/javascript/express/
+
+to integrate your bugsnag dashboard with the app, all you've to do is:
+go to ```sn_backend/config/default.json``` and set your API key string
+
+```
+ "bugsnag_API_KEY":"<API_Key>"
+```
+
+
 * mongoose
-* config
 * GoogleAnyltics
 
 
