@@ -10,6 +10,7 @@
     "mysql_password": "a44wVJzhqYq8D4ED",
     "mysql_defaultDB": "voffers20190704", 
     "JWTsecret":"thisIsmysecret",
+    "bugsnag_API_KEY":"f87536c886e1ec7a4c4c896e3ef781a2",
     "firebaseConfig" : {
         "apiKey": "AIzaSyCUr-_t5Gg483tDElpsywrdvJV3UoZKeHY",
         "authDomain": "devconnector-c92b3.firebaseapp.com",
