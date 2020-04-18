@@ -6,7 +6,7 @@ var cors = require('cors')
 const {bugsnagmiddleware, bugsnagClient} = require('./config/bugsnag') */
 const swaggerSetup = require('./config/swagger')
 const app = express();
-app.use(cors())
+//app.use(cors())
 /* connectDB(); */
 
 app.use(express.json({extended : false}))
