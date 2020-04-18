@@ -9,6 +9,11 @@ const app = express();
 //app.use(cors())
 /* connectDB(); */
 
+app.use((req, res, next) => {
+    res.set('Access-Control-Allow-Origin', '*')
+    next()
+  })
+
 app.use(express.json({extended : false}))
 /* app.use(bugsnagmiddleware.requestHandler)
 app.use(bugsnagmiddleware.errorHandler) */
