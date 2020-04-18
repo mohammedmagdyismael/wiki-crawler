@@ -14,6 +14,6 @@ const sampleGET = require('./sample_controllers/post.controller')
  * ]
  */
 
-router.post('/', (req,res,next)=>sampleGET.getWiki(req,res,next) );
+router.get('/', (req,res,next)=>sampleGET.getWiki(req,res,next) );
 
 module.exports = router;
