@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router() 
 
-const sampleGET = require('./sample_controllers/post.controller') 
+const sampleGET = require('./sample_controllers/get.controller') 
 /**
  * @swagger
  * /api/sample:
- *  post:
+ *  get:
  *      description: post Wikipedia URL to create a word bag
  *      parameters: [
  *               {
