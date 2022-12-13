@@ -1,6 +1,7 @@
 var request = require("request");
-var domParser = require("dom-parser")
-
+var domParser = require("dom-parser");
+var helper = require("./helper");
+var url = require("url");
 
 function paragraphToWordBag (body, q, threshold) {
   var links = [];
@@ -68,8 +69,8 @@ function paragraphToWordBag (body, q, threshold) {
     }
   })
   let levelResultObj = {
-    links:links,
     bagObj:list,
+    links:links,
   }
   return levelResultObj
 }
@@ -77,28 +78,41 @@ function paragraphToWordBag (body, q, threshold) {
 
 
 exports.getWiki =  async (req, res, next) => {
+    var { wikiurl, thresholdoccurance, depth } = req.headers;
+    var accumulatedData = {
+      bagObj: [],
+      links: [wikiurl],
+    };
+
     try { 
-      const promise1 = new Promise(function(resolve, reject) {
-        var url = require('url');
 
-        var adr = Array(req.headers.wikiurl)[0]; 
-        var threshold = req.headers.thresholdoccurance;
-        var depth = req.headers.depth;
+      for (var i=0; i < depth; i++) {
+        for (var j = 0; j < 20; j++) {
+          const promise1 = new Promise(function(resolve, reject) {
+            var parsedURL = url.parse(wikiurl, true);
+            request({uri:wikiurl,},(e,rep,body)=>{
+              resolve(paragraphToWordBag(body, parsedURL, thresholdoccurance));
+            });
+          });
+          let y;
+          let prom1 = promise1.then(function(value) {
+            return value;
+          });
+          y = await Promise.all([prom1]).then((v)=>{return v});
 
-        var q = url.parse(adr, true);
-        request({uri:adr,},(e,rep,body)=>{
-          resolve(paragraphToWordBag(body, q, threshold));
-        });
-      });
-      let y = undefined;
-      let prom1 = promise1.then(function(value) {
-        return value;
-      });
-      y = await Promise.all([prom1]).then((v)=>{return v})
+          accumulatedData.bagObj = [...accumulatedData.bagObj, ...y[0].bagObj];
+          accumulatedData.links = [...accumulatedData.links, ...y[0].links];
+        }
+      }
+
+
       var obj = {
         status: 200,
-        data: y[0],
+        data: {
+          ...accumulatedData,
+        },
       }
+
       res.status(200).send(obj)
     } catch (err) {
       console.log(err)
