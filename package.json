@@ -1,13 +1,13 @@
 {
-  "name": "devconnector",
+  "name": "wiki-crawler",
   "version": "1.0.0",
-  "description": "Internal Social Network",
+  "description": "Crawl Wikipedia Pages",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
   },
-  "author": "m.magdy.isl",
+  "author": "m.magdy.isl@gmail.com",
   "license": "ISC",
   "dependencies": {
     "@bugsnag/js": "^6.5.2",
