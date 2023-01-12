@@ -19,7 +19,7 @@
     "config": "^3.2.2",
     "cors": "^2.8.5",
     "dom-parser": "^0.1.6",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-validator": "^6.1.1",
     "firebase": "^7.9.1",
     "gravatar": "^1.8.0",
